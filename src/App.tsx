@@ -22,17 +22,16 @@ function App() {
 
   const addNews = (news: { id: number; title: string; content: string }) => {
     setNewsList((prev) => [...prev, news]);
+    setShowForm(false);
   };
 
   const onDelete = (id: number) => {
     setNewsList((prev) => prev.filter((item) => item.id != id));
   };
 
-
-
   const editNews = (id: number, title: string, content: string) => {
     setNewsList((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, title, content } : item))
+      prev.map((item) => (item.id === id ? { ...item, title, content } : item)),
     );
   };
 

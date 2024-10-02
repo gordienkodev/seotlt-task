@@ -1,3 +1,4 @@
+import React from 'react';
 import NewsItem from './NewsItem';
 
 interface NewsListProps {
@@ -8,10 +9,18 @@ interface NewsListProps {
 
 export const NewsList: React.FC<NewsListProps> = ({ newsList, onDelete, onEdit }) => {
   return (
-    <ul>
-      {newsList.map((news) => (
-        <li key={news.id}><NewsItem news={news} onSave={onEdit} onDelete={onDelete} /></li>
-      ))}
-    </ul>
+    <>
+      {newsList.length > 0 ? (
+        <ul>
+          {newsList.map((news) => (
+            <li key={news.id}>
+              <NewsItem news={news} onSave={onEdit} onDelete={onDelete} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Please add news...</p>
+      )}
+    </>
   );
 };
