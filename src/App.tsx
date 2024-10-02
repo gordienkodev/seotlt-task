@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { NewsList } from './components/NewsList';
+import { NewsForm } from './components/NewsForm';
 
 function App() {
   const [newsList, setNewsList] = useState<{ id: number; title: string; content: string }[]>([]);
+  const [showForm, setShowForm] = useState<boolean>(false);
 
   useEffect(() => {
     setNewsList([
@@ -14,8 +16,18 @@ function App() {
     ]);
   }, []);
 
+  const handleButton = () => {
+    setShowForm((prev) => !prev);
+  };
+
+  const addNews = (news: { id: number; title: string; content: string }) => {
+    setNewsList((prev) => [...prev, news]);
+  };
+
   return (
     <>
+      <button onClick={handleButton}>{!showForm ? 'Add' : 'Hide form'}</button>
+      {showForm && <NewsForm onAdd={addNews} />}
       <NewsList newsList={newsList}></NewsList>
     </>
   );
