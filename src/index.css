@@ -8,6 +8,6 @@
 
 @layer components {
     .card {
-        @apply bg-white shadow-md rounded-lg p-2 m-4 flex flex-col gap-5 max-w-screen-md;
+        @apply bg-white shadow-md rounded-lg pb-2 mb-4 flex flex-col gap-5 w-screen max-w-screen-md;
     }
 }
