@@ -28,11 +28,19 @@ function App() {
     setNewsList((prev) => prev.filter((item) => item.id != id));
   };
 
+
+
+  const editNews = (id: number, title: string, content: string) => {
+    setNewsList((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, title, content } : item))
+    );
+  };
+
   return (
     <>
       <button onClick={handleButton}>{!showForm ? 'Add' : 'Hide form'}</button>
       {showForm && <NewsForm onAdd={addNews} />}
-      <NewsList newsList={newsList} onDelete={onDelete}></NewsList>
+      <NewsList newsList={newsList} onDelete={onDelete} onEdit={editNews}></NewsList>
     </>
   );
 }
