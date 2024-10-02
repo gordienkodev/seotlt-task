@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { NewsList } from './components/NewsList';
 import { NewsForm } from './components/NewsForm';
-import { getNews, saveNews } from './utils/newsStorage';
+import { clearNews, getNews, saveNews } from './utils/newsStorage';
 
 function App() {
   const [newsList, setNewsList] = useState<{ id: number; title: string; content: string }[]>([]);
@@ -29,7 +29,15 @@ function App() {
   };
 
   const onDelete = (id: number) => {
-    setNewsList((prev) => prev.filter((item) => item.id != id));
+    setNewsList((prev) => {
+      const updatedList = prev.filter((item) => item.id !== id);
+
+      if (updatedList.length === 0) {
+        clearNews();
+      }
+
+      return updatedList;
+    });
   };
 
   const editNews = (id: number, title: string, content: string) => {
@@ -40,6 +48,7 @@ function App() {
 
   return (
     <>
+      <h1>CRUD</h1>
       <button onClick={handleButton}>{!showForm ? 'Add' : 'Hide form'}</button>
       {showForm && <NewsForm onAdd={addNews} />}
       <NewsList newsList={newsList} onDelete={onDelete} onEdit={editNews}></NewsList>

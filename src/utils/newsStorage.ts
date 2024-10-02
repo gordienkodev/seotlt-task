@@ -8,3 +8,7 @@ export const getNews = (): { id: number; title: string; content: string }[] => {
 export const saveNews = (newsList: { id: number; title: string; content: string }[]) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(newsList));
 };
+
+export const clearNews = () => {
+    localStorage.removeItem('newsList');
+};
