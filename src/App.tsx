@@ -24,11 +24,15 @@ function App() {
     setNewsList((prev) => [...prev, news]);
   };
 
+  const onDelete = (id: number) => {
+    setNewsList((prev) => prev.filter((item) => item.id != id));
+  };
+
   return (
     <>
       <button onClick={handleButton}>{!showForm ? 'Add' : 'Hide form'}</button>
       {showForm && <NewsForm onAdd={addNews} />}
-      <NewsList newsList={newsList}></NewsList>
+      <NewsList newsList={newsList} onDelete={onDelete}></NewsList>
     </>
   );
 }
