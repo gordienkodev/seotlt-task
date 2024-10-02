@@ -47,7 +47,7 @@ function App() {
   };
 
   return (
-    <section className="flex flex-col bg-gray-100 items-center justify-center gap-10">
+    <section className="flex flex-col bg-gray-100 items-center justify-center gap-10 p-1">
       <button onClick={handleButton}>
         {!showForm ? (
           <PencilSquareIcon className="h-20 w-20 text-gray-500 hover:text-green-500 transition-colors duration-200" />
