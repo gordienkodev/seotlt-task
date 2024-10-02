@@ -2,19 +2,22 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { NewsList } from './components/NewsList';
 import { NewsForm } from './components/NewsForm';
+import { getNews, saveNews } from './utils/newsStorage';
 
 function App() {
   const [newsList, setNewsList] = useState<{ id: number; title: string; content: string }[]>([]);
   const [showForm, setShowForm] = useState<boolean>(false);
 
   useEffect(() => {
-    setNewsList([
-      { id: 1, title: 'title1', content: 'content1' },
-      { id: 2, title: 'title2', content: 'content2' },
-      { id: 3, title: 'title3', content: 'content3' },
-      { id: 4, title: 'title4', content: 'content4' },
-    ]);
+    const storedNews = getNews();
+    setNewsList(storedNews);
   }, []);
+
+  useEffect(() => {
+    if (newsList.length > 0) {
+      saveNews(newsList);
+    }
+  }, [newsList]);
 
   const handleButton = () => {
     setShowForm((prev) => !prev);
