@@ -8,10 +8,6 @@
 
 @layer components {
     .card {
-        @apply bg-white shadow-md rounded-lg p-4 m-4 transition-transform duration-200 flex flex-col gap-10;
-    }
-
-    .card:hover {
-        @apply transform scale-x-105;
+        @apply bg-white shadow-md rounded-lg p-2 m-4 flex flex-col gap-10 w-screen;
     }
 }

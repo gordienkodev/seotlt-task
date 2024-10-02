@@ -54,7 +54,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ news, onSave, onDelete }) => {
       ) : (
         <>
           <header className="text-gray-700 text-center text-3xl">{news.title}</header>
-          <div>{news.content}</div>
+          <div className="break-words whitespace-normal overflow-wrap p-8">{news.content}</div>
           <div className="flex gap-10 justify-center">
             <button onClick={() => setIsEditing(true)}>
               <PencilIcon className="h-10 w-10 text-gray-500 hover:text-green-500 transition-colors duration-200" />
