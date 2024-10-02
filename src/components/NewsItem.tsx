@@ -21,21 +21,23 @@ const NewsItem: React.FC<NewsItemProps> = ({ news, onSave, onDelete }) => {
     <article className="card">
       {isEditing ? (
         <>
-          <header className="mb-4">
+          <header className="mb-4 p-2">
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="block w-full border border-gray-300 rounded-md shadow-sm pb-2 focus:ring-green-500 focus:border-green-500"
+              className="block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-green-500 focus:border-green-500"
               placeholder="Title..."
             />
           </header>
+          <div className='p-2'>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="block w-full border border-gray-300 rounded-md shadow-sm pb-2 focus:ring-green-500 focus:border-green-500"
+            className="block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-green-500 focus:border-green-500"
             placeholder="Content..."
           ></textarea>
+          </div>
           <div className="flex gap-10 justify-center mt-4">
             <button
               onClick={handleSave}
