@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import { NewsList } from './components/NewsList';
 import { NewsForm } from './components/NewsForm';
 import { clearNews, getNews, saveNews } from './utils/newsStorage';
+import { PencilSquareIcon, XMarkIcon } from '@heroicons/react/16/solid';
 
 function App() {
   const [newsList, setNewsList] = useState<{ id: number; title: string; content: string }[]>([]);
@@ -47,12 +47,17 @@ function App() {
   };
 
   return (
-    <>
-      <h1>CRUD</h1>
-      <button onClick={handleButton}>{!showForm ? 'Add' : 'Hide form'}</button>
+    <section className="flex flex-col bg-gray-100 items-center justify-center gap-10 p-10">
+      <button onClick={handleButton}>
+        {!showForm ? (
+          <PencilSquareIcon className="h-20 w-20 text-gray-500 hover:text-green-500 transition-colors duration-200" />
+        ) : (
+          <XMarkIcon className="h-10 w-10 text-gray-500 hover:text-red-500 transition-colors duration-200" />
+        )}
+      </button>
       {showForm && <NewsForm onAdd={addNews} />}
-      <NewsList newsList={newsList} onDelete={onDelete} onEdit={editNews}></NewsList>
-    </>
+      <NewsList newsList={[...newsList].reverse()} onDelete={onDelete} onEdit={editNews}></NewsList>
+    </section>
   );
 }
 
