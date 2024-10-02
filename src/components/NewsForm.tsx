@@ -18,7 +18,7 @@ export const NewsForm: React.FC<NewsFormProps> = ({ onAdd }) => {
 
   return (
     <form
-      className="bg-white p-2 rounded-lg shadow-md flex gap-5 justify-center flex-col w-full max-w-xl mx-auto"
+      className="bg-white p-2 rounded-lg shadow-md flex gap-5 justify-center flex-col w-full"
       onSubmit={handleSubmit}
     >
       <input
