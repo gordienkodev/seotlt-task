@@ -1,1 +1,1 @@
-# seotlt-task
+# React + TypeScript + Vite
