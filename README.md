@@ -7,7 +7,7 @@ Deploy: [https://seotlt-task.vercel.app/](https://seotlt-task.vercel.app/)
 
 ## Author
 
-- [Pavel Gordienko](https://github.com/guz86)
+- [Pavel Gordienko](https://github.com/gordienkodev)
 
 ## Setup and Running
 
