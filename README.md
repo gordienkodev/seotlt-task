@@ -12,7 +12,7 @@ Deploy: [https://seotlt-task.vercel.app/](https://seotlt-task.vercel.app/)
 ## Setup and Running
 
 - Use `node 21.x` or higher.
-- Clone this repo: `$ git clone [https://github.com/guz86/skilla-task.git](https://github.com/guz86/seotlt-task.git)`.
+- Clone this repo: `$ git clone https://github.com/gordienkodev/seotlt-task.git)`.
 - Install dependencies: `$ npm install`.
 - Start server: `$ npm run dev`.
 - Now you can see web application to the address: `http://localhost:5174/`.
